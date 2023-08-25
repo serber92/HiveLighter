@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "calm-dragon-288318",
+  "private_key_id": "00d06f863712499c3511c65034344e79af3fa352",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDPmJgQ2562WbmM\nWfDcGNWerGozP3GT8ZyZZ6v8Z0N1dJY8Rf5tjVXVYiQJd3Ekm4CLMBiCdP2oGCH6\nfNVWNVPRjgrZrkOp61d5c8jb6q8dGQLDuxWrzTcbk94eEqJGb0yl3EUk/xMsvgjM\nc2YXV3IEnIMm8OUTDxay/mbjiAA4wQX+qf197j3/jbG4fxOflpB9Q721qPir9BTa\nOSk0EbOML0IwA+vb/alukBpxubvcoDWVx6NS5udOTdxNmighs6fB0u0F8cNBT1Pv\n0uXkbgoPHrydr4y+fG+PlpdYelriCtnLQbInYjPkW0jffub/xvLgM8QIIcF48xxP\nv7m69YHnAgMBAAECggEAMRfimlX9rh0A6saYVcyPtDMM+GqgBv8j7Ale3FVlWCEG\nqGFbHnhGnKxVXmG/QYt+tivdF/jnxblTS8P6xaTd2hhPy5PRD52GtcOidBOHbwer\npjMXmGXzCtQIuq7obmTCyRSSy4GA/NtCBGuj8JAu+BU1VN+yJLQ0R4cvOM7AUqsy\nENelacIoeHVRjgmn7w3Ap76/Eq2eVtZwsHRnuCVLZa1nIrM1vJUa9pjeOwC9S0fl\nwuSEIzr+1WCyHsO1jgztXDwSvFBPhcsNvMZJHUwirxKrj1kK4sWM6YwoO/B1PMpB\nn1O6W0RJeI+5tgn51A0mjT7Jn4IspExS8hrHFGYqqQKBgQDuhj2A9xUtTX4jfOzO\nTWD1CSs6eOZ7FRRzqWiVf4gRgxKPTghU1T9Aq/xsw3h/36ZTrusyID94O0wm556f\nvzgf8amZ2zhv2Q4OP89KwoaRP3JxHnngUUJdMAsLN4RG6zf+KX96B3wXbqk0tW0e\ndNPW/blgQGxvWCkAZ7CD/2HlXwKBgQDezkNNs1hyNtvH0vpGbr+7uI4a+G5VHQai\nxRWmt17EzDCUuDyc71MCnHCyXZdLh/Hg/y3KnurTPWYgzjhx4h2FdwZMrWL7amSL\nmgdTBd6V79GlxjWco4epJ1em/CgVHcXG//Y0rCgjCUt3VRhVuCaXzWmRkhQdEtdA\nyq/soW7oeQKBgCqWEyMUelZ1UIEbi9glnpsBQROWhGgTUmx4IbEXbP7bbRPi9b/X\ntwxf6JiuqbQDBVpJj7qKYWqhA66qifqxlF63sfVDW6c0lLrcj7EkXAxQzKj/rPjs\n6TFkI4SkK9zRoFSjqhvqfDBe1J0Ri2L1ruDiuhdCSVnz3pYw7SYUEbF3AoGBAJb3\nf5cIbGeHUEgHZlmO9Q9HL9KKfofhUPu9OrxqByaljE1YwIk9iCt+wMW6sKcXCAeC\nIA7ouwhC1A5qbMiNg59JVNVjrmvYXSRSS6Avm/BQPOdsdCscivFMnRGiTa5xK+94\nw+RQuilzRNUorYJ3cn7tShi+uC4y8/MM40Mc5z9RAoGAKNG1HjNE2PO5vAZsGYNQ\nDiaG/wGORoUR7QPNmpKDV/sAF0jf2u4ZC+bfkfPIZe9TibMMv4c1+MTELzjsQN9T\nLymCnY8nO8ZijE4kQurAV60HQD3nYj1XzdrL76lIbGTizdREY3JI4GRz+z97keKM\ndicwfg/s6VsGdx0CnGs7KxY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "category-client@calm-dragon-288318.iam.gserviceaccount.com",
+  "client_id": "102228570642642571411",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/category-client%40calm-dragon-288318.iam.gserviceaccount.com"
+}

@@ -1,0 +1,362 @@
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+p {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.control-panel {
+	background-color: #efefef;
+	border-bottom: 1px solid #bbb;
+	overflow: hidden;
+	opacity: .9;
+    width: 100%;
+    
+    /* CSS3 Box shadow */
+    /*-webkit-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.66);
+    -moz-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.66);
+    -o-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.66);
+    -ms-box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.66);
+    box-shadow: 4px 4px 10px -4px rgba(0,0,0,0.66);*/
+}
+
+.control-panel .container {
+	margin: 0 auto;
+	padding: 10px 0;
+    white-space: nowrap;
+    margin-left: 2%;
+    position: relative;
+}
+
+.control-panel .navigator {
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #bbb;
+    margin-right: 10px;
+	padding-right: 5px;
+}
+
+.control-panel .navigator .btn-nav {
+	background-size: contain !important;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 66px;
+	margin-right: 5px;
+    text-indent: -9000px;
+    opacity: .95;
+    outline: none;
+    width: 66px;
+}
+
+.control-panel .navigator .up    { background: url(../img/up.svg) center center no-repeat; }
+.control-panel .navigator .down { background: url(../img/down.svg) center center no-repeat; }
+
+.control-panel .share-panel {
+	/*float: left;*/
+    display: inline-block;
+	overflow: hidden;
+}
+
+.control-panel .share-panel .hdr {
+    background: url(../img/share.svg) #efefef center center no-repeat;
+    border: 1px solid #a5a9a8;
+    border-radius: 5px 5px 0 0;
+    float: left;
+    text-indent: -9000px;
+    opacity: .9;
+    outline: none;
+    width: 80px;
+}
+
+.control-panel .share-panel .share-buttons {
+    float: left;
+	overflow: hidden;
+}
+
+.control-panel .share-panel .share-buttons a {
+	background-size: contain !important;
+    display: inline-block !important;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 66px;
+	margin-right: 5px;
+    outline: none;
+    text-indent: -9000px;
+    width: 66px;
+}
+
+.control-panel .share-panel .share-buttons .mob-share-panel {
+    display: none;
+    float: left;
+}
+
+.control-panel .share-panel .share-buttons .mob-share-panel.active {
+    display: block !important;
+}
+
+.control-panel .share-panel .share-buttons .btn-share {
+    background: url(../img/share-this.svg) center center no-repeat;
+    float: left;
+    margin-right: 4px;
+}
+
+.control-panel .share-panel .share-buttons .btn-tw {
+    background: url(../img/twitter-2.svg) center center no-repeat;
+}
+
+.control-panel .share-panel .share-buttons .btn-fb {
+    background: url(../img/facebook-2.svg) center center no-repeat;
+}
+
+.control-panel .share-panel .share-buttons .btn-gp {
+    background: url(../img/googleplus.svg) center center no-repeat;
+}
+
+.control-panel .share-panel .share-buttons .btn-mail {
+    background: url(../img/icon-email.svg) center center no-repeat;
+    background-size: 82px !important;
+    text-indent: -9000px;
+}
+
+.control-panel .share-panel .share-buttons .btn-dismiss {
+    background: url(../img/btn-dismiss.svg) center center no-repeat;
+    background-size: 76px !important;
+    display: none !important;
+    float: right;
+    margin-right: 26%;
+    text-indent: -9000px;
+}
+
+.control-panel .share-panel .share-buttons .btn-like {
+    background: url(../img/icon-like.svg) center center no-repeat;
+    display: none !important;
+    float: left;
+    margin-left: 7px;
+    text-indent: -9000px;
+}
+
+.control-panel .share-panel .share-buttons .btn-like.visible  {
+    display: block !important;
+}
+
+.control-panel .share-panel .share-buttons .btn-like.liked {
+    box-shadow: inset 0 0 8px 2px #000185;
+    border-radius: 50%;
+}
+
+.control-panel .user-panel {
+    float: right;
+    height: 66px;
+    overflow: hidden;
+    border-left: 1px solid #bbb;
+    margin-right: 0;
+    padding-left: 10px;
+    width: auto;
+}
+
+.control-panel .user-panel .user-pic {
+    float: left;
+    margin-right: 6px;
+}
+
+.control-panel .user-panel .user-pic img {
+    border-radius: 50%;
+    float: left;
+    height: 66px;
+    width: 66px;
+}
+
+.control-panel .user-panel .btn-follow {
+    border: 2px solid green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: green;
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+.control-panel .user-panel .btn-follow.visible {
+    display: block;
+}
+
+.control-panel .user-panel .btn-follow.following {
+    background: green;
+    color: #fff;
+}
+
+/* smaller phones */
+/* ----------------------------- */
+@media only screen and ( max-width: 320px ) {
+    .control-panel .navigator .btn-nav {
+        margin-top: 2px;
+    }
+
+    .control-panel .share-panel .share-buttons a {
+        margin-right: 5px;
+        margin-top: 2px;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-dismiss {
+        display: block !important;
+    }
+}
+
+@media all and (min-width: 320px)  and (max-width: 480px) {
+    #toolBarHeight {
+        height: 61px;
+    }
+
+    .control-panel .container {
+    	padding: 5px 0 0 0;
+    }
+       
+    .control-panel .navigator {
+        margin-right: 6px;
+    }
+
+    .control-panel .navigator .btn-nav {
+        height: 34px;
+        margin-right: 0;
+        width: 34px;
+    }
+
+    .control-panel .share-panel {
+    }
+
+    .control-panel .share-panel .share-buttons {
+    }
+
+    .control-panel .share-panel .share-buttons a {
+        height: 34px;
+        margin-right: 0;
+        width: 34px;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-mail {
+        background-size: 42px !important;
+    }
+
+
+    .control-panel .user-panel {
+        -webkit-transition: margin-right 0.08s linear; 
+        height: 37px;
+        /*margin-right: -75px;*/
+        /*position: absolute;*/
+        padding-left: 7px;
+        right: 7px;
+        top: 5px;
+    }
+
+    .control-panel .user-panel .user-pic {
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+        margin-right: 2px;
+    }
+
+    .control-panel .user-panel .user-pic img {
+        cursor: pointer;
+        height: 34px;
+        width: 34px;
+    }
+
+    .control-panel .user-panel .btn-follow {
+        border-radius: 4px;
+        display: none;
+        margin-top: 4%;
+        margin-left: 0 !important;
+        line-height: 14px;
+        font-size: 12px;
+        margin-right: 6px;
+        padding: 5px 5px;
+    }
+
+    .control-panel .user-panel.active {
+        background-color: #e8e8e8;
+        height: 44px;
+        margin-right: 0;
+        right: 0;
+        padding-right: 7px;
+        padding-top: 5px;
+        top: 0;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-dismiss {
+        display: inline-block !important;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-like {
+        margin-left: 0;
+    }
+
+    /* Mobile share panel */
+    .control-panel .share-panel .share-buttons .mob-share-panel {
+        border-left: 1px solid #bbb;
+        border-right: 1px solid #bbb;
+        padding-left: 7px;
+        padding-right: 4px;
+        padding-top: 5px;
+        background: #e8e8e8;
+        padding-bottom: 5px;
+        left: 77px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-dismiss {
+        background-size: 64px !important;
+        margin-right: 29%;
+    }
+}
+
+@media all and (min-width: 481px) {
+    .control-panel .share-panel .share-buttons .mob-share-panel {
+        display: block;
+    }
+
+    .control-panel .share-panel .share-buttons .btn-share {
+        display: none !important;
+    }
+}
+
+/* Override rules for NON PUBLISHED (readermode) pages -- Keep at bottom */
+.control-panel.non-published-page .user-panel,
+.control-panel.non-published-page .share-panel .share-buttons .btn-like,
+.control-panel.non-published-page .share-panel .share-buttons .btn-share,
+.control-panel.non-published-page .share-panel .share-buttons .mob-share-panel .btn-dismiss {
+    display: none !important;
+}
+
+.control-panel.non-published-page .share-panel .share-buttons .mob-share-panel {
+    display: inline-block !important;
+    padding: 0 !important;
+    background: none;
+    position: static;
+    border: none;
+}
+
+.control-panel.non-published-page .user-panel.owner {
+    display: block !important;
+}
+
+/* ----------------------------------------------- */
+
+

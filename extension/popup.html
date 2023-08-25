@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://hivelighter.com/readermode/css/aboutReader.css?128" />
+        <link rel="stylesheet" href="https://hivelighter.com/readermode/css/aboutReaderControls.css?3" />
+        <link rel="stylesheet" href="https://hivelighter.com/readermode/css/aboutReaderContent.css?3" />
+        <link rel="stylesheet" href="https://hivelighter.com/publisher/css/annotations.css" />
+        <link rel="stylesheet" href="https://hivelighter.com/publisher/tcallout/css/tcallout.css" />
+
+        <script src="jquery-1.10.1.min.js"></script>
+        <script src="https://hivelighter.com/readermode/js/toolsetloader.js"></script>
+        <script src="https://hivelighter.com/readermode/js/b64.js"></script>
+        <script src="https://hivelighter.com/readermode/js/readerModeScroll.js"></script>
+        <script src="https://hivelighter.com/readermode/js/manipulations.js?182"></script>
+        <script src="toolsConfig.js"></script>
+        <script src="toolsLoader.js"></script>
+        <script src="popup.js"></script>
+        <!-- extension style -->
+        <style>
+            * {
+              margin: 0;
+              padding: 0;
+             }
+
+             html, body {
+              background: white;
+              height:100%;
+              width:100%;
+             }
+             .container {
+                box-sizing: border-box;
+                padding: 25px;
+                width: 600px;
+                display: table;
+
+             }
+             .container h3 a{font-weight: bolder; color:#102041;}
+
+             html #calloutFrame {
+              width: 182px !important;
+             }
+            /*!* ----- modal -------*!*/
+            html .modal {
+                display: block; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 9; /* Sit on top */
+                left: 0;
+                top: 0;
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                height: 100%;
+                width: 600px;
+            }
+
+            /* Modal Content */
+           html .modal-content {
+                position: absolute;
+                background:#f0f0eb;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                z-index: 1;
+                top : 30%;
+                left:7%;
+               display: block;
+               -webkit-user-select: none; /* Safari */
+               -ms-user-select: none; /* IE 10+ and Edge */
+               user-select: none; /* Standard syntax */
+            }
+            html .modal-content a {
+                text-decoration: none;
+                background: #102041;
+                color: white;
+                padding:10px 20px 10px 20px;
+                font-size: 18px;
+            }
+            /* The Close Button */
+           html .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+           html .close:hover,
+            html .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            /* -----modal end -------*/
+        </style>
+        <!-- extension style -->
+
+    </head>
+    <body class="browser-extension" id ="popup">
+        <div class="container">
+            <h3 id="credential-content"><a href="https://hivelighter.com/register?extension=1" target="_blank">Please Login</a> OR Become a Member<a href="https://hivelighter.com/register?extension=1" target="_blank">  Sign Up </a></h3>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+// Connections Exported from Studio 3T -- https://studio3t.com/
+// Exported on Jan. 5, 2021 4:36:09 p.m.
+
+// Docker Local
+mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&3t.uriVersion=3&3t.connection.name=Docker+Local&3t.defaultColor=127,80,142&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true
+
+// stage
+mongodb://root:DBMS521%27spud@stage:27017/?ssl=true&sslInvalidHostNameAllowed=true&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=stage&3t.defaultColor=223,59,57&3t.ssh=true&3t.sshAddress=stage&3t.sshPort=22&3t.sshAuthMode=privateKey&3t.sshUser=webmark&3t.sshPassword=songs-KDPc2t&3t.sshPKPath=/Users/admin/.ssh/id_rsa_stage&3t.sshUsePKPassphrase=false&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true&3t.sslTlsVersion=TLS&3t.bundledToolsVersion=V42&3t.intelliShellSource=BUNDLED&3t.mongodumpSource=BUNDLED&3t.mongorestoreSource=BUNDLED
+
+// prod
+mongodb://root:DBMS521%27spud@localhost:27017/?ssl=true&sslInvalidHostNameAllowed=true&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=prod&3t.defaultColor=0,120,215&3t.ssh=true&3t.sshAddress=prod&3t.sshPort=22&3t.sshAuthMode=privateKey&3t.sshUser=webmark&3t.sshPassword=songs-KDPc2t&3t.sshPKPath=/Users/admin/.ssh/id_rsa_prod&3t.sshUsePKPassphrase=false&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true&3t.sslTlsVersion=TLS

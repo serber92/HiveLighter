@@ -1,0 +1,294 @@
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Callout box</title>
+
+        <style>
+
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .callout-container {
+                position: relative;
+                height: 50px;
+                /*width: 186px;*/
+                width: 182px;
+
+            }
+
+            .callout-container.edit {
+                position: relative;
+                height: 50px;
+                width: 122px;
+            }
+
+            .callout-container ul,
+            .callout-container.edit ul,
+            .callout-container li,
+            .callout-container.edit li {
+                list-style: none;
+            }
+
+            .callout-container ul {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .callout-container .callout-blk,
+            .callout-container.edit .callout-blk {
+                border-radius: 4px;
+                /*background-color: #222;*/
+                background-color: #102041;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                height: 100%;
+                width: 100%;
+                z-index: 5;
+            }
+
+            .callout-container .interactive-elements,
+            .callout-container.edit .interactive-elements{
+                position: absolute;
+                z-index: 50;
+            }
+
+            .callout-container .interactive-elements div,
+            .callout-container.edit .interactive-elements div {
+                float: left;
+            }
+
+            .callout-container .interactive-elements li,
+            .callout-container.edit .interactive-elements li {
+                float: left;
+                height: 30px;
+                min-width: 28px;
+                padding: 10px 15px;
+                /*border-right: 1px solid #5e5e5e;*/
+                border-right: 1px solid transparent;
+            }
+
+            .callout-container .interactive-elements li.last {
+                border: none;
+                border-radius: 0 20px 20px 0;
+            }
+
+            .callout-container .interactive-elements li a {
+                display: block;
+                margin-top: -2px;
+                text-align: center;
+                width: 100%;
+
+                /* Prevent tap highlight */
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .callout-container .interactive-elements li.close-btn a {
+                margin-top: -1px;
+                margin-left: 4px;
+            }
+
+            .callout-container .interactive-elements li.tw-box a {
+                margin-top: 3px;
+            }
+
+            .callout-container .interactive-elements li.close-btn,
+            .callout-container.edit .interactive-elements li.close-btn{
+                /*background-color: #434343;*/
+                background-color: #102041;
+                border-radius: 4px 0 0 4px;
+            }
+
+            .callout-container .interactive-elements li.close-btn img,
+            .callout-container.edit .interactive-elements li.close-btn img
+            {
+                /*height: 22px;*/
+                padding: 4px 0;
+            }
+
+            .callout-container .interactive-elements li.clip-box img { margin-top: 1px;}
+
+            /* Within app/extension */
+            #calloutBox .tw-box,
+            #calloutBox .fb-box,
+            #calloutBox .email-box {
+                display: none !important;
+            }
+
+            /* Within published page */
+            #calloutBox.post .callout-container {
+                width: 175px;
+            }
+
+            #calloutBox.post .callout-container .sh-box {
+                border: none;
+            }
+
+            #calloutBox.post .save-box {
+                display: none !important;
+            }
+
+            /* Off app */
+            #calloutBox.off-app .callout-container { /*width: 242px;*/ width: 300px; }
+
+            #calloutBox.off-app .sh-box { display: none !important; }
+
+            #calloutBox.off-app .tw-box,
+            #calloutBox.off-app .fb-box,
+            #calloutBox.off-app .email-box {
+                display: block !important;
+            }
+
+            #calloutBox.off-app .fb-box,
+            #calloutBox.off-app .email-box {
+                margin-top: 4px;
+            }
+            #message{
+                background: #0a5d5e;
+                color: white;
+                position: absolute;
+                top:70%;
+                z-index:1;
+                display: none;
+            }
+
+
+            /* smaller phones */
+            /* ----------------------------- */
+            /*@media only screen and ( max-width: 236px ) {
+                
+                .callout-container.edit { height: 38px; width: 98px; }
+                .callout-container.edit .interactive-elements div { float: right; }
+                .callout-container.edit .interactive-elements li { padding: 8px 8px 5px; height: 25px; min-width: 30px; }
+
+                .callout-container.edit .interactive-elements li img { width: 22px; }
+                .callout-container.edit .interactive-elements li.tr-can a { margin-top: -1px; margin-left: -1px; }
+                .callout-container.edit .interactive-elements li.tr-can img { height: 20px; padding: 1px 0 3px 0; }
+                .callout-container .interactive-elements li.close-btn img {  padding: 3px 0; width: 16px; }
+                .callout-container.edit .interactive-elements li.close-btn a {  margin-top: -4px; margin-left: 1px; }
+
+
+            }
+
+            @media only screen and ( max-width: 236px ) {
+                
+                
+                .callout-container { height: 38px; width: 191px; }
+
+                .callout-container .interactive-elements div { float: right; }
+                .callout-container .interactive-elements li { padding: 8px 8px 5px; height: 25px; min-width: 30px !important; }
+
+                .callout-container .interactive-elements li img { width: 18px; }
+                .callout-container .interactive-elements li.clip-box img { width: 15px; margin-top: 2px;}
+                .callout-container .interactive-elements li.tw-box img { width: 21px; }
+                .callout-container .interactive-elements li.fb-box img { width: 9px; }
+                .callout-container .interactive-elements li.email-box img { width: 22px; margin-top: 2px !important; }
+                .callout-container .interactive-elements li.save-box img { width: 16px; }
+
+                .callout-container .interactive-elements li.close-btn img {  padding: 5px 0; width: 18px; }
+                .callout-container .interactive-elements li.close-btn a {  margin-top: -3px; margin-left: 1px; }
+
+                #calloutBox.post .callout-container { width: 145px !important;  }
+                #calloutBox.post .callout-container .sh-box img { margin-left: -5px;  }
+
+                #calloutBox.off-app .callout-container { height: 38px; width: 187px !important; }
+            }*/
+
+            /*@media only screen and ( min-width: 245px ) {
+                
+                #calloutBox.post .callout-container { width: 245px; }
+
+
+            }*/
+
+
+
+
+
+
+            /* bigger phones */
+            /* ----------------------------- */
+            /*@media only screen and ( min-width: 106px ) and ( max-width: 125px ) {
+                .callout-container:before { border-width: 10px 8px 0 8px; left: 13px; bottom: -10px;}
+                .callout-container { height: 39px; width: 293px; }
+                .callout-container .interactive-elements div { float: right; }
+                .callout-container .interactive-elements li { padding: 7px 8px; height: 25px; }
+
+                .callout-container .interactive-elements .color-picker {
+                    font-size: 14px;
+                    height: 25px;
+                    line-height: 25px;
+                    width: 25px;
+                }
+
+                .callout-container .interactive-elements li img { width: 25px; }
+                .callout-container .interactive-elements li.close-btn { height: 25px; }
+                .callout-container .interactive-elements li.close-btn img { height: 18px; padding: 3px 0; }
+            }*/
+        </style>
+
+    </head>
+
+    <body ontouchstart="">
+        <div id="calloutBox">
+            <div class="callout-container">
+                <div class="callout-blk"></div>
+                <div class="interactive-elements">
+                    <div class="color-picker-row">
+                        <ul>
+                            <li class="marker clip-box last">
+                                <a href="#">
+                                    <img src="img/Copy.svg" alt="Save to clipboard" width="24" ontouchstart="this.src='img/Copy.svg'" ontouchend="this.src='img/Copy.svg'" />
+                                </a>
+                            </li>
+                            <li class="marker save-box last">
+                                <a href="#" id="displayMsg">
+                                    <img src="img/Save.svg" alt="Comment" width="24" ontouchstart="this.src='img/Save.svg'" ontouchend="this.src='img/Save.svg'"/><br>
+                                    <img src="img/save_text.svg" alt="Comment" width="23" ontouchstart="this.src='img/save_text.svg'" ontouchend="this.src='img/save_text.svg'"/>
+                                </a>
+                            </li>
+                            <li class="marker sh-box" style="display: none;">
+                            	<a href="#" style="margin-top: -1px;">
+                            		<img src="img/share_off-new.svg" alt="Marker" width="24" ontouchstart="this.src='img/share_on-new.svg'" ontouchend="this.src='img/share_off-new.svg'" />
+                            	</a>
+                            </li>
+                            <li class="com-bub marker tw-box">
+	                            <a href="#">
+	                            	<img src="img/twitter-icon.svg" alt="Marker" width="30" />
+                            	</a>
+                            </li>
+                            <li class="marker fb-box">
+                            	<a href="#">
+                            		<img src="img/facebook-icon.svg" alt="Marker" width="12" />
+                            	</a>
+                            </li>
+                            <li class="marker email-box">
+                            	<a href="#">
+                            		<img src="img/mail-icon2new.svg" alt="Marker" width="32" style="margin-top: 3px;" />
+                            	</a>
+                            </li>
+                            <li class="close-btn">
+                                <a href="#" class="close-btn-child">
+                                    <img src="img/Close.svg" alt="Email" width="23" ontouchstart="this.src='img/Close.svg'" ontouchend="this.src='img/Close.svg'" />
+                                </a>
+                            </li>
+                            <li class="tr-can last" style="display: none;">
+                            	<a href="#" class="trash" onclick="broadcastCalloutEvent('trash'); return false;">
+                            		<img src="img/trash-bin.svg" alt="trash" width="21" />
+                            	</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p id = message style="background: #0a5d5e;color: white">"Posted Successfully. Open Your App to See Hivelight"</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="calloutSCRIPT.js"></script>
+    </body>
+</html>

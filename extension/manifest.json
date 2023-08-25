@@ -1,0 +1,37 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+   "browser_action": {
+      "default_icon": "images/hive16.png",
+      "default_popup": "popup.html"
+   },
+   "description": "The hivelighter save button lets you highlight and save the best parts of articles and keep them all in one place",
+   "homepage_url": "http://www.hivelighter.net",
+   "icons": {
+      "16": "images/hive16.png",
+      "48": "images/hive48.png",
+      "128": "images/hive128.png"
+   },
+   "content_scripts": [
+      {
+      "js" : ["jquery-1.10.1.min.js", "contentscript.js"],
+      "matches":  ["<all_urls>"],
+      "run_at" : "document_start"
+      }
+   ],
+   "background": {
+      "scripts": ["bg.js"],
+      "persistent": false
+   },
+   "manifest_version": 2,
+   "externally_connectable": {
+    "matches": ["https://hivelighter.com/*"]
+   },
+   "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-Ls45CnZ502H4ljk/bvkYEam0YMskpbwd4UUR80G3Jsw=' 'sha256-0frEMpC7w0tbp84CjzHvErBKZi20cQ8zWrUOXDvZpek=' https://dev.hivelighter.com https://beta.hivelighter.com https://hivelighter.com https://cdn.mxpnl.com; object-src 'self'; style-src * 'unsafe-inline';",
+   "name": "hivelighter",
+   "permissions": [
+                  "activeTab",
+                  "storage"
+                  ],
+   "version": "0.0.0.1"
+}

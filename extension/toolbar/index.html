@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Collaborator - Blue annotation box</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="control-panel.css?ver=20170612.1">
+    </head>
+    <body>
+		<div class="control-panel">
+            <div class="container">
+                <div class="navigator">
+                    <button type="button" class="btn-nav down">Up</button>
+                    <button type="button" class="btn-nav up">Down</button>
+                </div>
+
+                <div class="share-panel">
+                    <div class="share-buttons">
+                        <a onclick="" class="btn-share">Share</a>
+                        <div class="mob-share-panel">
+                            <a onclick="broadcastToolbarEvent('twitter')" class="btn-tw">Share on twitter</a>
+                            <a onclick="broadcastToolbarEvent('facebook')" class="btn-fb">Share on facebook</a>
+                            <a onclick="broadcastToolbarEvent('gplus')" class="btn-gp">Share on Google+</a>
+                            <a onclick="broadcastToolbarEvent('email')" class="btn-mail">Mail to</a>
+                            <a class="btn-dismiss">Dismiss</a>
+                        </div>
+                        <a onclick="broadcastToolbarEvent('like')" class="btn-like">Like</a>
+                    </div>
+                </div>
+
+                <div class="user-panel">
+                    <div class="user-pic">
+                        <img src="../img/avatar-generic.jpg" alt="avatar" class="avatar" />
+                    </div>
+                    <a onclick="broadcastToolbarEvent('follow')" class="btn-follow">Follow</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            var up = document.getElementsByClassName("up")[0];
+            var down = document.getElementsByClassName("down")[0];
+            var share = document.getElementsByClassName("btn-share")[0];
+            var dismiss = document.getElementsByClassName("btn-dismiss")[0];
+            var controlPanel = document.getElementsByClassName("control-panel")[0];
+            var userPanel = document.getElementsByClassName("user-panel")[0];
+            var mobileSharePanel = document.getElementsByClassName("mob-share-panel")[0];
+            var likeBtn = document.getElementsByClassName("btn-like")[0];
+            var followBtn = document.getElementsByClassName("btn-follow")[0];
+            var avatar = document.getElementsByClassName("avatar")[0];
+            var eleList = [];
+            var owner = false;
+
+            if (document.referrer.split('/')[2] !== location.host) {
+                // inverse display values
+                eleList = eleList.concat(Array.prototype.slice.call(document.getElementsByClassName('btn-tw')));
+                eleList = eleList.concat(Array.prototype.slice.call(document.getElementsByClassName('btn-fb')));
+                eleList = eleList.concat(Array.prototype.slice.call(document.getElementsByClassName('btn-gp')));
+
+                var i;
+                for (i = 0; i < eleList.length; i++) {
+                    if (eleList[i].style.display == "none") {
+                        eleList[i].style.display = "inline-block";
+                    } else {
+                        eleList[i].style.display = "none";
+                    }
+                }
+
+            }
+
+            if ( checkForPublishedPage() ) {
+
+                controlPanel.className = "control-panel non-published-page";
+
+            }
+
+            up.addEventListener('click', function() {
+                try {
+                    parent.triggerNav('up');
+                } catch (e) {
+                    // use message passing instead
+                    broadcastToolbarEvent("navup");
+                }
+            }, false);
+
+            down.addEventListener('click', function() {
+                try {
+                    parent.triggerNav('down');
+                } catch (e) {
+                    // use message passing instead
+                    broadcastToolbarEvent("navdown");
+                }
+            }, false);
+
+            /* Share */
+            share.addEventListener('click', function() {
+                var d = document.getElementsByClassName("mob-share-panel")[0];
+                d.className += " active";
+            }, false);
+
+            dismiss.addEventListener('click', function() {
+                var d = document.getElementsByClassName("mob-share-panel")[0];
+                d.className = "mob-share-panel";
+            }, false);
+
+            // tell parent of our height
+            function pushHeight() {
+                //var toolBarHeight = document.getElementsByClassName("navigator")[0].offsetHeight;
+
+                broadcastToolbarEvent('push-height');
+            }
+
+            function checkForPublishedPage() {
+                var candidate  = (window.parent.document.getElementsByClassName('lannit-published-page').length);
+                var readermode = window.location.href.indexOf("/readermode/") !== -1;
+                var view       = false;
+
+                if ( window.webkit && (typeof window.webkit.messageHandlers !== "undefined") )  {
+                    view = true;
+                }
+
+                if ( candidate && view ) {
+
+                    return false;
+
+                } else {
+
+                    if ( readermode ) {
+
+                        return false;
+
+                    } else {
+
+                        return candidate;
+
+                    }
+                }
+            }
+
+            function setOwnerProfilePicture(uuid) {
+                avatar.src = "../../profile/" + uuid + "/pic.jpg";
+            }
+
+            function getRefUrl() {
+                var iframe_url = document.location.href,
+                    referrer  = iframe_url.substr(iframe_url.indexOf("?refurl=") + 8),
+                    refProtcl = referrer.split('://')[0],
+                    refDmn    = referrer.split('/')[2],
+                    refOrigin = refProtcl + "://" + refDmn;
+
+                return refOrigin;
+            }
+
+            function broadcastToolbarEvent(event, param) {
+                var message = ""
+                var isPublishedPage = checkForPublishedPage();
+
+                switch (event){
+
+                    // Email share
+                    case 'email':
+                        message = 'emailToolbar';
+                        break;
+                    case 'facebook':
+                        if ( isPublishedPage ) {
+                            window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(top.location.href), 'share_facebook','toolbar=no,width=680,height=500')
+                        } else {
+                            message = 'facebookToolbar';
+                        };
+
+                        break;
+
+                    case 'twitter':
+                        if ( isPublishedPage ) {
+                            window.open('http://twitter.com/home?status='+encodeURIComponent(top.location.href),'share_twitter','toolbar=no,width=680,height=500');
+                        } else {
+                            message = 'twitterToolbar';
+                        };
+
+                        break;
+
+                    case 'gplus':
+                        if ( isPublishedPage ) {
+                            window.open('https://plus.google.com/share?url='+encodeURIComponent(top.location.href), 'share_googleplus','toolbar=no,width=680,height=500')
+                        } else {
+                            message = 'gplusToolbar';
+                        };
+
+                        break;
+
+                    case 'like':
+                        message = 'likeToolbar';
+                        break;
+
+                    case 'follow':
+                        message = 'followToolbar';
+                        break;
+
+                    case 'push-height':
+                        if (top.location.protocol == "chrome-extension:") {
+                            message = 'push-height:auto';
+                        } else {
+                            message = 'push-height:' + parseFloat(getComputedStyle(document.documentElement, null).height);
+                        }
+                        break;
+                    case 'navup':
+                        message = 'navup';
+                        break;
+
+                    case 'navdown':
+                        message = 'navdown';
+                        break;
+
+                    // Add more events here (future)...
+                    // ...
+                };
+
+                if ( message !== "" ) { window.parent.postMessage(message, "*"); };
+            }
+
+            function receiveMessage(event) {
+
+                // if readerMode did not work, tell the user they can't continue
+                if (event.data && event.data.ans_mode) {
+
+                    var mode   = event.data.ans_mode;
+                    var params = event.data.params;
+
+                    switch (mode) {
+                        case 'token_not_provided':
+                            controlPanel.className = "control-panel non-published-page";
+                            break;
+
+                        case 'token_is_owner':
+                            owner = true;
+                            share.style.display = "none";
+                            mobileSharePanel.style.display = "block";
+                            controlPanel.className = "control-panel non-published-page";
+                            userPanel.className = "user-panel owner";
+                            break;
+
+                        case 'token_is_stranger':
+                            likeBtn.className += " visible";
+                            followBtn.className += " visible";
+                            break;
+
+                        case 'like':
+                            // like page
+                            likeBtn.className += " liked";
+                            break;
+
+                        case 'unlike':
+                            // unlike page
+                            if (!owner) { likeBtn.className = "btn-like visible" };
+                            break;
+
+                        case 'follow':
+                            // follow owner
+                            followBtn.className += " following";
+                            followBtn.innerHTML = "Following";
+                            break;
+
+                        case 'unfollow':
+                            // unfollow owner
+                            if (!owner) {
+                                followBtn.className = "btn-follow visible";
+                                followBtn.innerHTML = "Follow";
+                            }
+
+                            break;
+
+                        case 'owner':
+                            // set owner profile pic
+                            setOwnerProfilePicture(params);
+
+                            // Do more stuff based on who the owner is...
+                            break;
+
+                        default:
+                            console.log('************* is NOT owner');
+                            break;
+                    }
+                }
+            }
+
+            var readyStateCheckInterval = setInterval(function() {
+                if (document.readyState === "complete" && window.parent.flareans ) {
+                    clearInterval(readyStateCheckInterval);
+
+                    // Toolbar ready
+                    window.parent.postMessage('toolBarReady', "*");
+
+                    // push height
+                    pushHeight();
+                }
+            }, 10);
+
+            // register for rotation events
+            window.addEventListener('orientationchange', pushHeight);
+
+            // watch for incoming messages
+            window.addEventListener("message", receiveMessage, false);
+
+        </script>
+    </body>
+</html>
